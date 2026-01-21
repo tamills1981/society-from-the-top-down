@@ -4,7 +4,7 @@ project:
 
 website:
   description: "I'm Tom Mills, a sociologist in the UK. This is my personal website."
-  site-url: https://github.com/tamills1981/society-from-the-top-down
+  site-url: https://tamills1981.github.io/society-from-the-top-down/
   title: "Society From the Top Down"
   navbar:
     right:

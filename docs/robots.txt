@@ -1,1 +1,1 @@
-Sitemap: https://github.com/tamills1981/society-from-the-top-down/sitemap.xml
+Sitemap: https://tamills1981.github.io/society-from-the-top-down/sitemap.xml

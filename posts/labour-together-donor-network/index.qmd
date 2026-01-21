@@ -1,6 +1,6 @@
 ---
 title: "Labour Together's Donor Network"
-categories: [politics, python, network analysis, networkx, elites]
+categories: [politics, python, network analysis, computational social science]
 image: networkx-logo.jpg
 date: "2026-01-19"
 
