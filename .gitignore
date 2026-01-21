@@ -1,0 +1,10 @@
+#Quarto
+/.quarto/
+/_site/
+
+#Editor
+.vscode/
+
+#Windows
+Thumbs.db
+**/*.quarto_ipynb

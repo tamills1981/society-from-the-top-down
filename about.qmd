@@ -1,0 +1,21 @@
+---
+title: "About"
+image: profile_new.jpeg
+about:
+  template: jolla
+  links:
+    - icon: bluesky                                                 
+      text: Bluesky
+      href: https://bsky.app/profile/tommills.bsky.social
+    - icon: twitter-x
+      href: https://x.com/ta_mills
+    - icon: github
+      text: Github
+      href: https://github.com/tamills1981
+---
+
+I'm Tom Mills, a sociologist and socialist in the UK. This is a website where I post my general thoughts on social science and society and politics, work in progress, half-formed ideas, and little bits of research that never became, or never found their way into, books or journal articles.
+
+I called it **Society from the Top Down** (a title shamelessly ripped off Blair Fix’s interesting website/blog [Economics from the top down](https://economicsfromthetopdown.com/)) because I’m mainly interested in researching elites these days. But I also post about other things related to work, but not quite work, like media power, UK politics, sociological methods and computational social science. Will try and resist the urge to post about cooking and my cat, but can't promise anything.
+
+This is my personal website. If you're interested purely in work stuff, here's my [university webpage](https://research.aston.ac.uk/en/persons/tom-mills/).

@@ -1,0 +1,255 @@
+---
+title: "Labour Together's Donor Network"
+categories: [politics, python, network analysis, networkx, elites]
+image: networkx-logo.jpg
+date: "2026-01-19"
+
+---
+
+In this post I'll produce a network revealing the relationship between donors to the right-wing Labour think tank, Labour Together, and other politicians and political organisations they have funded.
+
+A lot of really shocking details about Labour Together and the party faction it represents have been revealed in Paul Holden’s book, *The Fraud*. Labour Together was set up by Morgan McSweeney who emerged as a key figure on the Labour Right during Jeremy Corbyn's turbulent period as party leader, then becoming chief of staff to Prime Minister Keir Starmer. Basically McSweeney orchestrated the right-wing takeover of the party that followed the 2019 General Election (planned much earlier), and Labour Together was the key vehicle he used. 
+
+As Holden details, McSweeney won considerable funding from some key wealthy donors, disguising this fact from Labour members by not disclosing the donations to the Electoral Commission, as he was legally required to do. This was key, because his whole strategy was to convince Labour members that Starmer would be a more professional and competent front man for a centre-left project that retained the popular policy positions of the Corbyn leadership. Starmer produced a series of 'pledges' to the Labour membership, each one of which would be broken, either in letter or in spirit, and repeatedly talked up his left credentials and intentions, so the faction he now represented could take control of the party machinery. This, as the title suggests, was a fraud. Cards on the table, I'm not a fan.
+
+![](politics_for_sale.png){style="float: right; width: 35%; margin-left: 1em;"}
+
+Political donations can reveal a lot about parties and party factions. It's not that you can reduce everything to the money that changes hands in politics. But donations are a fundamental feature of political organisation, and can be revealing the political networks of which they are part. To be honest, a reductionist 'follow the money' attitude is probably less reductive than ignoring political finance altogether.
+
+I've been interested in political donations for a long time and a few years ago I got a little money from my university to bring together some academics and data scientists to work on restructuring, augmenting and analysing the donations data regularly published by the Electoral Commission. This data is released quarterly and is usually the basis of some journalistic interest. But for that project I wanted to do something which hadn't been done before, which is to go beyond the relationships between parties and individual donors and look more systematically at the relative political mobilisation of different business sectors. What's immediately clear though once you start working with this data is how poor quality it is. We spent quite a long time trying to resolve various issues and ended up producing a much cleaner dataset, augmented with data from other sources. You can read the report Autonomy published on the project [here](https://autonomy.work/portfolio/politics-for-sale/) (pictured above).
+
+For this post, we'll use the original Electoral Commission data and just do some basic cleaning before using the donor and donee names, and the sum of donations over time from one to the other, to construct a network. I'll walk you through how to do this in Python, so if you're new to coding or social network analysis it can serve as a practical introduction to both, and you can have a go yourself. If you're not interested in the technical stuff then just slip to the end.
+
+### Creating a Pandas dataframe from the data
+Start by downloading the donations file from the Electoral Commission, which is [here](https://search.electoralcommission.org.uk/?currentPage=0&rows=10&sort=AcceptedDate&order=desc&tab=1&et=pp&et=ppm&et=tp&et=perpar&et=rd&isIrishSourceYes=true&isIrishSourceNo=true&prePoll=false&postPoll=true&register=gb&register=ni&register=none&optCols=RegisterName&optCols=CampaigningName&optCols=AccountingUnitsAsCentralParty&optCols=IsSponsorship&optCols=IsIrishSource&optCols=RegulatedDoneeType&optCols=CompanyRegistrationNumber&optCols=Postcode&optCols=NatureOfDonation&optCols=PurposeOfVisit&optCols=DonationAction&optCols=ReportedDate&optCols=IsReportedPrePoll&optCols=ReportingPeriodName&optCols=IsBequest&optCols=IsAggregation). If you search the whole dataset without adding any search terms you'll get the whole thing. You'll then see 'Export Results' alongside a CSV icon at the bottom of the page. If you save the CSV file to the same folder that you're running your Python script from, saving the file as 'ec_donations.csv', then everything below should work. You just need to copy all the coding snippets into your script. 
+
+That said, you will first need to install the packages we use if you don't have them installed already (Pandas, NetworkX and Matplotlib). This is usually straightforward, although as is often the case with free software you can sometimes hit a wall and end up with cryptic error codes. If so, some patient Googling, or some lazy AI queries, should get any problems resolved. 
+
+First, we'll create a Pandas dataframe from the CSV of the Electoral Commission file. [Pandas](https://pandas.pydata.org/docs/) is a great package to use for this sort of work. A Pandas `dataframe` is a two dimensional data structure with rows and columns, where your rows will typically be a case, your columns a variable, and each cell a value. So very familiar if you're used to working in Excel or SPSS. But Pandas is much more flexible and efficient than Excel so if you've ever found yourself banging your head against a wall trying to get Excel to do something which seems very straightforward, but which involves madly complicated syntax, or causes Excel to constantly crash, then Pandas is for you. There's loads of accessible tutorials and since its so widely used, AI tools usually produce very good suggestions.
+
+Here's our first line of code:
+
+````markdown
+```python
+import pandas as pd
+
+#Create a Pandas dataframe from the CSV
+all_donations = pd.read_csv('ec_donations.csv')
+````
+
+First, this imports Pandas using the conventional shorthand 'pd'. This means that every time you want to use a method from Pandas you can use this shorthand, as in the code above where we create a dataframe called `all_donations` using the `pandas.read_csv` method, passing the file name (add the location if its somewhere else on your computer). Now we have a dataframe we can work with, let's do some basic data cleaning.
+
+### Cleaning the data ###
+
+The column recording the value of a donation contains strings that include pound signs and commas. We're going to combine the value of multiple donations from and to the same donor and donee, so first we need this column to be numeric. In the code below we delete (replace with an empty string) the pound signs and commas. Then we convert the cleaned strings to `integers`. (In Python there are two data types used for numerical data: `integers` and `floats`. They sometimes behave slightly differently, but the key difference is that the former are round numbers and the latter have decimal points.)
+
+````markdown
+```python
+#Remove the non-numeric characters from the Value column
+all_donations.loc[:, 'Value'] = (
+    all_donations['Value'].str.replace('£', '')
+    .str.replace(',', '')
+    )
+
+#Convert donation values to integers
+all_donations.loc[:, 'Value'] = pd.to_numeric(all_donations['Value'], errors='coerce', downcast='integer')
+````
+
+Everything else we'll use for the network - the name of donors and donees - is a `string`. They'll also need some cleaning. One major problem with the Electoral Commission data is that the way donor names are rendered is highly inconsistent, and even the donor ID numbers are not unique to individuals and organisations. For the Autonomy [report](https://search.electoralcommission.org.uk/?currentPage=0&rows=10&sort=AcceptedDate&order=desc&tab=1&et=pp&et=ppm&et=tp&et=perpar&et=rd&isIrishSourceYes=true&isIrishSourceNo=true&prePoll=false&postPoll=true&register=gb&register=ni&register=none&optCols=RegisterName&optCols=CampaigningName&optCols=AccountingUnitsAsCentralParty&optCols=IsSponsorship&optCols=IsIrishSource&optCols=RegulatedDoneeType&optCols=CompanyRegistrationNumber&optCols=Postcode&optCols=NatureOfDonation&optCols=PurposeOfVisit&optCols=DonationAction&optCols=ReportedDate&optCols=IsReportedPrePoll&optCols=ReportingPeriodName&optCols=IsBequest&optCols=IsAggregation) we grouped together similar names under a unique reference number, but for this analysis we'll keep things simple by just stripping any white space and removing some common titles. Below we create a list called 'remove' and then get Python to loop through the list, deleting in turn each item in the list from the 'DonorName' column.
+
+````markdown
+```python
+#Clean Donor Name column
+all_donations['DonorName'] = all_donations['DonorName'].str.strip()
+remove = ['.', 'Mr ', 'Sir ', 'Lord ', 'Mrs ', 'Ms ']
+for string in remove:
+    all_donations['DonorName'] = all_donations['DonorName'].str.replace(string, '')
+````
+
+Next we'll combine data from two of the columns. In the Electoral Commission data there's a column called 'RegulatedEntityName' and another called 'AccountingUnitName'. The former normally contains the donee name in full, but in the case of local party branches, 'RegulatedEntityName' contains the party name, whilst the name of the branch appears in the 'AccountingUnitName' column. 
+
+````markdown
+```python
+#Create a new 'donne' column combining the RegulatedEntityName and the accounting unit
+all_donations['donee'] = all_donations['RegulatedEntityName'] + ' ' + all_donations['AccountingUnitName'].astype(str)
+
+all_donations['donee'] = (
+    all_donations['donee'].str.replace(' nan','')
+    .str.replace('Labour Party Central Party', 'Labour (Central Party)')
+    .str.replace('Labour Party ', '')
+    )
+````
+
+What the code above does is create a new column in the dataframe called 'donee', and then replaces the strings in that column. First we delete the 'nan' string which is creating when the 'AccountingUnitName' column is empty ('nan' is a string created from the non-value when its converted to a string). Then we change the Labour Central Party string that's created, before removing 'Labour Party' from all the constituency names (since they are all Labour Party branches anyway and we don't wnat really long labels).
+
+In the next step below, we ensure that the different rendering of 'Labour Together' in the data are harmonised so they all have the same string value: 'Labour Together'. Again we're using the `pd.str.replace()` method where you pass two string values, the string you want to replace, followed by the string you want to replace it with.
+
+````markdown
+```python
+#Harmonise different spellings of Labour Together
+all_donations['DonorName'] = (
+                              all_donations['DonorName'].str.replace('Labour Together LTD', 'Labour Together')
+                              .str.replace('Labour Together Ltd', 'Labour Together')
+                              .str.replace('Labour Together Limited', 'Labour Together')
+                              )
+````
+
+The next step is probably more difficult to make sense of if you're new to Python or Pandas. What we are doing here is first creating a Pandas `Series` called 'filt'. You can think of a Pandas Series as being like a Python `list` or a single column in a Pandas dataframe. What this code returns is a `boolean` Series, which is basically a list containing the value `True` or `False` in resposne to the condition. What's important here is that 'filt' is the same length as the dataframe we used in the condition, because we'll then use it to filter locations in that dataframe.
+
+The first 'filt' we create below indicates if in that location of the donee column the value is equal to 'Labour Together'. In the second line of code we create a new Series by filtering the 'DonorName' column in the original dataframe with that Series using `.loc`. 
+
+If you pass a boolean Series to `.loc` like this, what you get back is just the locations where there was a `True`. In other words, all the rows that don't meet the original condition are dropped. What this does is create a new Series containing the unique string values of all the donors in the data who have donated to Labour Together. We also drop duplicated values and reset the index (although this isn't actually necessary for the code to work).
+
+In the second step below we use basically the same method to filter the original dataframe. This time we pass two conditions: whether the donor name is 'Labour Together' *or* the donor name appears in our Series we created in the first step: 'labour_together_donors'. So what we end up with is a new dataframe that contains only rows with donations from Labour Together, or from a donor that has at some point donated to Labour Together.
+
+````markdown
+```python
+#Series of donors to Labour Together
+filt = all_donations['donee'] == 'Labour Together'
+labour_together_donors = all_donations['DonorName'].loc[filt].drop_duplicates().reset_index(drop=True)
+
+#Dataframe of Labour Together donors and donees
+filt = (all_donations['DonorName'] == 'Labour Together') | all_donations['DonorName'].isin(labour_together_donors.values)
+labour_together = all_donations.loc[filt]
+````
+
+Finally, in the snippet below we harmonise the two strings used in the data to describe the Blairite organisation Progress, which was renamed Progressive Britain and appears under both names. This is the sort of basic cleaning you can only do by actually inspecting the data.
+
+````markdown
+```python
+#Replace string
+labour_together['donee'] = labour_together['donee'].str.replace('Progressive Britain Ltd (formally Progress Ltd)', 'Progress')
+````
+
+### Creating an edge list for the network ###
+Okay, now we have filtered the dataset so it contains only the donations we're interested in, we're going to create a network from it. 
+
+You can think of a network (or graph as its often referred to) as a way of structuring data to reflect real world relationships. Everything in a network/graph is either a `node` or an `edge`. A node is a thing. In classic social network analysis it would be an individual, but it could be anything - an inanimate object, a concept, an event. An `edge` is simply a connection or relationship of some sort between those things. Both nodes and edges can have properties. So if you and I are friends we could be represented by nodes connected by an edge we'd call 'friends' (maybe with the date we became friends or length of time we've been friends as an edge attribute), and we could each have node properties, which could be anything unique to us not defined by our social relations, like our names or age.
+
+The bare bones of a network is an edge list that contains just the connections. This will contain the IDs of pairs of connected nodes. Node properties or attributes are recorded separately and to keep things simple we'll stick to just an edge list (the ID of the node here is its name so that can in effect serve as a node attribute). 
+
+First, we'll use Pandas to group all donations between pairs of IDs over time, producing a single figure and a single edge (as opposed to repeat donations between the same pairs). Then we'll rename these columns, sorting the list from the largest to the smallest sum of donations (again not actually necessary for the coding but I like to keep things ordered).
+
+````markdown
+```python
+#Group by donor and donee, summing values
+edge_list = labour_together.groupby(['donee', 'DonorName'])['Value'].sum().reset_index()
+
+#Change column names and order
+edge_list.columns = ['target', 'source', 'weight']
+edge_list = edge_list[['source', 'target', 'weight']].sort_values(by='weight', ascending=False).reset_index(drop=False)
+````
+
+Now we have the data in a structure we can use to create a network. The donors are the `source`, the donees are the `target`, and we have a `weight` to assign to the `edge` connecting them that represents the sum of donations from one to the other. 
+
+To construct the network we'll use the Python library `NetworkX`. It's not quite as intuitive as Pandas, so making sense of the [documentation](https://networkx.org/documentation/stable/reference/introduction.html) if you're new to coding might take a bit more work. It's really good though for constructing and restructuring networks, and performing more complex analysis. We're going to keep things quite basic though and at this point you could export the edge list we've created as a CSV file, and then use the free network visualisation programme [Gephi](https://gephi.org/) to produce the network. I'll switch to Gephi in the end anyway to produce the network visualisation, but before that I'll give a quick demo of how we can produce the network in networkx and export it as a Gephi file.
+
+First, we need to import networkx in the same way that we did Pandas. Just as Pandas is conventionally imported as pd, the conventional shorthand for networkx is nx. With networkx imported we then use its `from_pandas_edgelist` method to produce our network from our dataframe. In the code snippet below we are creating a new `Python` object and calling it `G`. Everything in the brackets is telling networkx what to use or do.
+
+````markdown
+```python
+import networkx as nx
+
+#Create a directed NetworkX graph from the edgelist
+G = nx.from_pandas_edgelist(edge_list, source='source', target='target', edge_attr='weight', create_using=nx.DiGraph)
+````
+
+First, we are telling networkx the name of the dataframe we want to use. Then we are telling it which columns to use for the source and target of the network (which we've already called source and target), as well as what to assign as an edge attribute (which will be the value of the donations between the pair of nodes). Finally, we are telling networkx which graph type to produce.
+
+In networkx there are different types of networks/graphs. The basic type is undirected. This means that the direction of the connections in the network doesn't have any meaning and so it doesn't matter whether the things connected are in the source or the target column. Choosing which graph type to use just depends on the sort of data you have and the sort of network you want to create. Say, for example, that we were creating a classic social network where people are connected if they know eachother. If I know you then you know me. So no need for a directed network. But even in this kind of network a direction might make sense. Say I consider you a friend, but the feeling isn't mutual. One way of approaching that is that we'd only create an edge between us if you considered me a friend as well. But then we lose some data. We might want to capture my unreciprocated feeling in the network so we can gauge how delusional and unpopular I am. For this we need a directed network.
+
+In the case of our data, giving and receiving a donation are clearly not the same thing, so we want a directed network. That's why we use `DiGraph`, which is one of the two types of directed networks in networkx. There's another type of directed graph called a `MultiDiGraph`. The difference between the two is that the latter allows multiple edges between two nodes. So were we to use a `MultiDiGraph`, we could have several edges between donors and donees, each with a different value. We could also include other data associated with the donation, such as the donation date and type (e.g. cash, accommodation etc). To keep things simple though, we've already summed all the donations in the data between pairs of donors and donees. 
+
+We could have still preserved that additional data by adding a list of donation dates and types as an edge attribute. This is where networkx comes into its own. It allows for lots of flexibility in how networks are constructed. Generally, the way to think about all this is you want a network that allows you to answer a specific question or set of questions about the relational social structure or process you are trying to capture. In the end a network is a model of what is happening in the real world and what we get out of it analytically depends on what we put in - and of course it is dependent on the quality of data we use to capture those real world processes or structures in the first place.
+
+### Filtering the network ###
+
+The code above produces for me a network with 190 nodes and 250 edges. If you're running it on a newer version of the Electoral Commission data you might get a larger network. Since the goal here is to reveal a core network of donors and donees, we're going to use a couple of methods to strip away a lot of these nodes. First we'll lose some of the donors and donees only associated with relatively small sums. The code below drops any nodes that have donated or received a total of less than £5K (in this network). It first creates a list of nodes that have incoming or outgoing edges with a weight of 5000 or more. Then it creates a subgraph from the original network called `G_5000` that contains only nodes in that list. For me, that drops just 18 nodes from the original network.
+
+````markdown
+```python
+#Create a new graph/network containing only nodes with in degree or out degree of 5000
+nodes_to_keep = [
+    n for n in G.nodes()
+    if G.in_degree(n, weight="weight") >= 5000
+    or G.out_degree(n, weight="weight") >= 5000
+]
+G_5000 = G.subgraph(nodes_to_keep).copy()
+````
+
+The next step is a bit more technical. We'll use a method called 'K-Core Decomposition'. Like a lot of methods in network analysis, this can be a little difficult to get your head round at first, but is actually very simple. A straightforward way of stripping away at the network would be to drop any nodes with only one connection (which in relational terms makes them less significant). But if you do this you will often be left with new peripheral nodes that previously had more than one connection, but now have only one because their 'neighbour' in the original network was dropped. Say for example we had someone who donated to Labour Together and to two MPs who themselves have received no money from any other Labour Together donors. Those two MPs would be dropped and the donor would have only its donation to Labour Together remaining. With 'K-Core Decomposition', the rich donor would then be removed as well. It will keep doing this until every node in the subnetwork has at least *k* connections remaining, so you're left with a dense subnetwork of nodes with that many connections. This is easy to implement. Here's the [documentation](https://networkx.org/documentation/stable/reference/algorithms/generated/networkx.algorithms.core.k_core.html). The code below produces our k-core with *k* set as 2. For me this produces a new subnetwork with 50 nodes. You can set *k* higher if you want a denser subnetwork. For the data I'm using, setting *k* as 3 returns a subnetwork of just 19 nodes, which is the highest value that *k* can have without the network collapsing altogether.
+
+````markdown
+```python
+#Create k-core subnetwork
+core_network = nx.k_core(G_5000, k=2).copy()
+````
+
+### Visualising the Network ###
+
+Now we have a core network which can show us the relationship between donees who have received two or more donations from Labour Together donors (or one from Labour Together itself and another from a Labour Together donor). For a relatively small network like this, rather than producing statistics on the network structure we are going to produce an accessible visualisation with labels that makes the network qualitatively interpretable. NetworkX *can* produce good network visualisations, but its not really where its strengths lie and there are lots of other Python packages you can use that are better. One I was using a while back that was really good is called [pyvis](https://pyvis.readthedocs.io/en/latest/tutorial.html), which I'll maybe demonstrate in another post. For now I'll just show you quickly the basics of drawing a network in NetworkX using the Python plotting library, `matplotlib`.
+
+The code below first imports the `pyplot` submodule of `matplotlib` as plt. The first thing we do is define a Python object called 'pos' which defines the layout of the nodes (using the standard spring layout). Then the size and colour etc of the nodes and edges are defined. If you want you can try playing around with this to get a feel for things.
+
+````markdown
+```python
+import matplotlib.pyplot as plt
+
+#Dictionary of node positions using spring layout
+pos = nx.spring_layout(core_network, seed=42)
+
+#Plot the nodes
+plt.figure(figsize=(10, 10))
+nx.draw_networkx_nodes(
+    core_network,
+    pos,
+    node_size=100,
+    node_color="blue",
+)
+
+#Plot the edges
+nx.draw_networkx_edges(
+    core_network,
+    pos,
+    edge_color="gray",
+    arrows=True,
+    arrowsize=10,
+    width=1
+)
+
+#Show plot
+plt.show()
+````
+Below is the figure this produces. It does give a basic indication of the network structure (with the donees around the periphery of the figure), but not much else, as we don't even have any labels.
+
+![](networkx_fig.jpeg)
+
+We could spend time working on this; adding labels, changing the node size and colour and so on. But this is quite fiddly. A much easier way to produce visualisations for a network like this is using the aforementioned free programme [Gephi](https://gephi.org/). Gephi is great for producing network visualisations. Its really user friendly and you can do loads of statistical analysis and filtering in it too. So if you're new to network analysis and don't need to do anything too technical, then it's got everything you need. 
+
+I won't spend any time introducing you to Gephi in this post. But below is the snippet of code that exports our network as a file you can open directly in Gephi, which then allows you to customise the visualisation till you're happy with it.
+
+````markdown
+```python
+#Export as Gephi file
+nx.write_gexf(core_network, 'core_network.gexf')
+````
+
+In the visualisation below, I've coloured the nodes according to whether they are donors or donees, sized them according to the sum of their edge weights, and shortened some of the labels from the original data (so e.g. Sir Keir Starmer MP appears just as Keir Starmer).
+
+![](labour_together_network.jpeg)
+
+Worth remembering that this network doesn't necessarily include the most significant individual donors to Labour Together (or to the other politicians adn organisations in the network), because an individual could make a very large donation to Labour Together and not feature. But is useful for revealing the network of donees connected by these donors. As you would expect given that the whole network was constructed around it, Labour Together is at the centre. And as you can see from the visualisation, it includes many key members of Starmer's Cabinet. Starmer himself of course. The Chancellor Rachel Reeves, the Health Secretary Wes Streeting, David Lammy, Lisa Nandy, Liz Kendall and the former Deputy Prime Minister, Angela Rayner. Since the network includes historical donations, the network also includes some former figureheads of the Labour Right: David Miliband, who was their favourite for leader at one point, but tragically lost to his brother Ed, and Owen Smith (remember him?).
+
+There are also a few now defunct political organisations set up by the Labour Right: Labour Tomorrow Ltd, Saving Labour and Movement for Change, which was originally founded by David Miliband. What you can also see from the network is donations from right-wing donors supporting particular constituency parties, presumably to support an MP or Parliamentary candidate aligned with Labour's right-wing faction.
+
+Its a relatively small network, but the sums changing hands are not insignificant (at least for British politics). We can calculate this in networkx using the code snippet below.
+
+````markdown
+```python
+print(
+    sum(
+    edge_data['weight']
+    for source, target, edge_data in core_network_edges(data=True)
+))
+````
+For my network, this gives a figure of £28,739,432. Whilst there may be some double counting, since Labour Together gives and receives donations, this is a lot. For context, consider that according to the Electoral Commission, the spending limit for a party contesting every seat in England a General Election is £29,327,430, and this is just the money changing hands at the core network of this political faction.

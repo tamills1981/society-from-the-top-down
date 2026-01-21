@@ -1,0 +1,12 @@
+---
+title: "Welcome!"
+date: "2026-01-14"
+---
+
+![](profile.jpeg)
+
+Welcome to Society from the Top Down. In case you don't know, I'm Tom Mills, a sociologist and socialist in the UK. This is a new website where I will post my general thoughts on social science and society and politics, work in progress, half-formed ideas, and little bits of research that never become, or never found their way into, books or articles. 
+
+Been meaning to set up a website for some time, but work commitments always got in the way. This year I decided to finally get my act together, with the hope that it will give me more focus, rather than being an unsustainable time sink. We'll see I guess. 
+
+I called it **Society from the Top Down** (a title shamelessly ripped off Blair Fix’s interesting website/blog [Economics from the top down](https://economicsfromthetopdown.com/)) because I’m mainly interested in researching elites these days. But I'll also post about other things related to work, but not quite work, like media power, UK politics, sociological methods and computational social science. Will try and resist the urge to post about cooking and my cat, but can't promise anything.
