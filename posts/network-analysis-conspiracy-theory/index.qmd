@@ -1,0 +1,80 @@
+---
+title: "Network Analysis and the Paranoid Style"
+date: "2026-01-28"
+categories: [politics, network analysis]
+image: "charlie-conspiracy-meme.jpg"
+---
+
+![](charlie-conspiracy-meme.jpg)
+
+It's all connected man! Conspiracy theory can give network analysis a bad name. But that’s not because network analysis is inherently flawed as a method. As I noted in a [previous post](https://tamills1981.github.io/society-from-the-top-down/posts/labour-together-donor-network/), a network is a model of what is happening in the real world, and you get back what you put in.
+
+Thing is, everything *is* connected. You don't need to go Full Latour to recognise that human beings – or anything in the world – exist in a complex set of relationships and dependencies, and cannot be understood outside of them. No one is an island. Relations between people and (other) things give rise to a structure that has its own generative properties. The structure, system, network, or assemblage (whatever you want to call it) is more the sum of its parts. Network analysis is a formal method to try capture this.
+
+But you can’t just impulsively map connections and hope to reveal anything meaningful, except perhaps a reflection of your own assumptions. Perhaps the most well-known and – to a point at least – entertaining example of this in recent years is QAnon, which took off during the first Trump administration. Those guys convinced themselves that Donald Trump was going to save America from a secret network of paedophiles and deep state operatives, and busily tried to expose these hidden networks, *doing their own research*. Not sure how they are currently processing the Epstein disclosures, but think we can agree that their worldview is a tad misconceived.
+
+But let’s consider a rather more obscure example. Some frenetic network analysis that will only be familiar to you if – speaking of networks – you've been knocking around my particular corner of social media for a while. Enter stage left, Mr Paul Mason.
+
+He's a funny fish, Paul. He has a background on the British Trotskyist Left (Workers’ Power to be exact) and built up a considerable national profile at BBC Newsnight in the 2010s for his reporting of the anti-austerity movements, especially the protests in Greece when the country was being strangled by the bankers, politicians and technocrats of Europe. Mason’s background on the left meant he stood out among the centrist conformists at the BBC, and was able to recognise much more quickly the significance of the political mobilisations that followed the global financial crisis.
+
+When Jeremy Corbyn was elected Labour leader in 2015, it was as a representative of the sorts of movements Mason had been reporting on; movements that opposed imperialism, austerity and neoliberalism. Mason became in those early years a high-profile supporter of Labour’s left turn in a profession that was almost universally hostile, to the point that it dispensed with even the most basic professional standards.
+
+As with some other high-profile centre-left figures, things later soured. Part of the reason for this is no doubt personal. As the shenanigans around Your Party have shown, some of the people around Corbyn are not the easiest to work with. But in Mason's case there were also political differences. Whereas much of the British left assumes a broadly anti-imperialist position, when it comes to defence and security (which really means war and espionage), Mason has always been closer to the Labour Right (though to be fair he did in 2017 very publicly lambast the Blairites in their lion’s den for their enthusiasm for illegal wars).
+
+Anyway, after 2019 Mason jumped on the Starmer bandwagon, no doubt seeing what he wanted to see: a basically social democratic project that would combine a left economic agenda with an enthusiasm for NATO and MI5. He was half right.
+
+His love was not requited and in keeping with tradition, Mason, who was now relatively marginalised, launched into denunciations of his interlockers on the left, and his analysis, which was always rather idiosyncratic though often thought provoking for that reason, became more and more unhinged. As has often been the case with acrimonious splits on the left, how to respond politically to an armed conflict seemed to have played a significant rule, in this case the full-scale Russian invasion of Ukraine.
+
+In 2022, the US website, the Grayzone, published an [article](https://thegrayzone.com/2022/06/07/paul-masons-covert-intelligence-grayzone/) based on hacked emails. One email purportedly from Mason had attached what was described as a ‘dynamic map of the “left” pro-Putin infosphere’, which is pictured below.
+
+![](grayzone_network.jpeg)
+
+I was reminded of this recently when Mason was mocked on social media by two high profile leftwingers in the UK: the Guardian columnist Owen Jones and the Green Party leader Jack Polanski, who both confronted him with the graphic. Mason responded by lamenting that: ‘Outright Putinists are now joining the Greens thanks to Zack's conversion to the Grayzone agenda’.
+
+In 2022, Mason responded to the original Grayzone exposé with a [statement](https://paulmasonnews.medium.com/response-to-grayzone-article-82d1a1ff6ce6) confirming that ‘an attempt was made to hack my encrypted and secure email account’, adding: ‘I make no comment on such materials, which may be altered or faked. Grayzone’s publication has the effect of assisting a Russian state-backed hack-and-leak disinformation campaign.’
+
+As far as I can tell he has never publicly confirmed nor denied producing the diagram. However, the Grayzone recently published an [article](https://thegrayzone.com/2026/01/27/paul-mason-plotted-grayzone-lawsuit/) based on new hacked emails, which suggests that Mason did produce it, but didn’t share with any of his spooky acquittances. The article includes the text of an email it says is from Mason to his lawyers in which the ‘network graphic’ is described as an ‘aide memoire for myself’ which ‘attempt\[s\] to show... people who are clear and overt promoters of Chinese propaganda, and veterans in the pro-Putin hard Stalinist left… on the left of the graph…’ If that sounds reasuring, I should probably point out that the same email mentions 'a $65m dark money network' linking Stop the War speakers 'to Uighur genocide denial'.
+
+Okay, let’s for the sake of this post put the question of authorship aside and focus on the rigour of the ‘network graphic’, whoever was responsible for producing it and for whatever reason.
+
+I don’t want to go all ‘academic marking an essay’ here. But I’m afraid I’m going to have to. Jeremy Corbyn, Zarah Sultana and Novara Media clearly belong in broadly the same political universe, and there’s no reason why you shouldn’t use a network diagram to try and represent that world. It’s a very effective way of modelling and communicating a basic set of relations. With a rigorously produced network/graph you would be able to, for example, identify distinct subcommunities, key figures operating as go-between between those communities and highly connected figures within them. It would be kind of interesting (well to me anyway).
+
+Were you to attempt something like that you could ask people on the British left to identify other people they’ve worked closely with, for example, and use that as a network edge. They’d immediately assume you were an undercover cop or an MI5 asset. But in theory it would work.
+
+You could alternatively use open data to construct a network of organisations where individuals have held formal positions of authority, and then produce a person-to-person ‘projection’ of that bipartite graph, where pairs of individuals are connected if they both held contemporaneous positions at the same organisation. Then, if this is your thing, you could identify those taking more critical stances on NATO, or those who are more sympathetic to the Chinese Communist Party.
+
+This diagram is not that. Though to be fair it does make a bit more sense than some people have given it credit for. There are some categories represented. First, individuals and organisations are in lower and uppercase respectively, and the ‘nodes’ on the right of the diagram are coloured differently to the others. The idea seems to be to illustrate influence from Russia and China on the left of the diagram/network to the social groups coloured differently to the right, hence the direction of the edges. So, for example, China influences the China-based British economist John Ross, who is a leading figure in Socialist Action. Socialist Action influences Zarah Sultana, who in turn influences Britain’s ‘Muslim Community’ and the ‘Young Networked Left’.
+
+A network that it amenable to quantitative analysis requires some degree of homogeneity in its nodes and edges. This seems to be closer to a qualitative social network that diagrammatically represents a heterogenous set of relations between people and things. This is in principle fine. But what is crucial is specifying the nature of the connections. Otherwise, how can the reader interpret the diagram, let alone assess the strength of the underlying evidence? What specifically is the nature of the chains of influence being claimed here and how strong are they? There’s nothing.
+
+Then there is the selection criteria for the data. Does this reflect the full range of political influences on each person, organisation or group? Obviously not. Then there’s the direction of the influences. The Trade Unions are apparently influenced by Richard Burgeon and Marcus Barnett, but themselves exert no influence over any other people or organisations. Why are the individual trade unions not distinct organisations with relations, rather than passive recipients of recycled Russian and Chinese propaganda?
+
+Diane Abbott apparently has no influence at all (assuming that’s what the lines represent) over anyone, including Britain’s Black Community (and neither is she influenced by it). Novara Media apparently does.
+
+In the end, what we are left with is a paranoid depiction of the influence of Russia and China on various social groups, via some quite marginal political figures, without the nature of that influence ever being specified. It’s little more than a pictural representation of a series of political assertions – the product of exactly the sort of erratic yet dogmatic thinking that characterises conspiracy theory.
+
+To be fair, whoever produced that paranoid mind map didn’t intend it to be published. But believe it or not, it wasn’t even the worst example of conspiratorial network analysis that attempted to ‘map’ the Corbyn movement in that period, and this next one was published by a national media organisation.
+
+On 7 December 2019, days before the General Election that year, *The Sun* published an [article](https://web.archive.org/web/20191207145207/https://www.thesun.co.uk/news/10501848/jeremy-corbyn-extremist-network/#) under the headline, ‘Ex-British intelligence officers say Jeremy Corbyn is at the centre of a hard-left extremist network’ (thanks to Twitter’s [Mr Considerate](https://x.com/Mr_Considerate) for helping me dig this one up, which I had only half remembered). That network, pictured below, was described as an ‘extraordinary network of hard-left extremists pieced together by former British intelligence officers’.
+
+![](Hijacked%20Labour.jpg){width="900"}
+
+It is extraordinary. Apparently a team of volunteers produced it in their spare time, led by a Sandhurst and Oxford educated former SAS officer. If you liked the last network you’ll love this one. It contains 430 nodes, among them: Post Modern Neo-Marxism, Gerry Adams, NBC, and Corbyn’s Communist Campaign Unit. At the centre is Corbyn himself, surrounded by a ‘spider’s web of extensive contacts’.
+
+Where this is different to the previous network is the different parts are coloured to indicate different communities, with the orange community at its heart including Corbyn, his advisor Seumas Milne, and *checks notes* Global Marxism. This was almost certainly produced using the free network visualisation software Gephi, which I used for a [previous post](https://tamills1981.github.io/society-from-the-top-down/posts/labour-together-donor-network/).
+
+I don’t want to put you off network analysis. Have a go with Gephi. It’s a great tool. But for the love of God please think about what you are using to construct your network.
+
+I won’t repeat my previous points about the homogeneity of ‘things’ represented as nodes or the connections between them ('edges'). Hopefully it is obvious to any reader why ‘Post Modern Neo-Marxism’ is not the same sort of ‘thing’ as Seumas Milne and shouldn’t be treated as such in a network diagram, let alone an actual graph that is going to be analysed statistically (as was the case here since community detection was used).
+
+One point I would make though is that these sorts of abstractions (paranoid or otherwise) can be put to use, but not in this way, and needless to say with a degree of analytical sobriety that is here completely absent.
+
+One weakness of network analysis is its empiricism. It’s very good at representing easily classifiable connections between things that give rise to a structure of relations. But there’s a lot of complexity – especially when it comes to humans – that it cannot readily capture. If you want to assert there’s something called ‘Post Modern Neo-Marxism’ then go for it. Knock yourself out. But this isn’t a ‘thing’ that belongs in a network. The great leftwing Weberian historical sociologist Michael Mann once responded to a study representing the state as a network of policy actors like this:
+
+> *Do we have to abandon substantive theory and construct our theory merely from the formal properties of maps of the dense organizational networks of modern political influence, as Laumann and Knoke (1987) do? Despite the considerable virtues of their organizational theory, and the parallels between their enterprise and my own, does it not sometimes miss the wood for the trees? The American state surely is at some ‘higher’, macro level capitalist; it is also essentially federal and it possesses the most powerful militarism in the world. I would not have guessed this from their maps of complex organizational power networks.*
+
+A macro level entity or concept like capitalism (or ‘Post Modern Neo-Marxism’!) doesn’t belong in a network, but it doesn’t have to be dispensed with because you are using network analysis as a method. Such abstractions are of course potentially useful and can be used to intepret a network, its structure, dynamics and communities. We all try to make sense of complexity, and that’s what theory (explicit or not) does for us. 
+
+In my view the lay impulse to try and make sense of the world by investigating connections between people, groups, institutions and ideas perfectly healthy, and the particular preoccupation with hidden connections amongst powerful people is a response to the unequal and basically undemocratic nature of our societies, as well as the inadequacy of our dominant systems of thought.
+
+But lay theorising can of course result in completely outlandish ideas. For realists the key point to hold on to is that not all theories, or methods, are equal. When it comes to networks, you can't just erratically map a myriad of different types of connections and expect to thereby reveal a hidden generative structure, let alone identify who or what caused some event.
