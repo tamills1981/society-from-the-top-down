@@ -1,5 +1,5 @@
 ---
-title: "Conspiracy of Silience"
+title: "Conspiracy of Silence"
 date: "2026-02-11"
 categories: [elites, politics, media]
 image: "mandelson-epstein.jpg"
