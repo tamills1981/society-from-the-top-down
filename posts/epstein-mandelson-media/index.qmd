@@ -20,7 +20,7 @@ In a classic enactment of the spiderman pointing meme, this was actually raised 
 >
 > *McFadden: Well, I believe the prime minister will have asked about this relationship. It sounds to me, and I can't know until everything's published, Peter Manderson will have enormously diminished it, portrayed himself as some kind of victim, of being duped, rather than what's been revealed in the in the exchanges that we've seen. And you know, even when you look at the BBC's coverage of the day that Peter Manderson was appointed as the prime minister, there is no mention on it of Jeffrey Epstein.*
 
-So is that true? Well, for the most part, yes. The appointment of Peter Mandelson as ambassador to Washington DC was (announced)[https://www.gov.uk/government/news/appointment-of-lord-mandelson-as-the-next-british-ambassador-to-the-united-states-of-america] on 20 December 2024. I used the news database Nexis UK to identify articles published in the UK national press, as well as transcripts of BBC1 news programmes, to identify mentions of Peter Mandelson between the announcement and 19 January 2025.
+So is that true? Well, for the most part, yes. The appointment of Peter Mandelson as ambassador to Washington DC was [announced](https://www.gov.uk/government/news/appointment-of-lord-mandelson-as-the-next-british-ambassador-to-the-united-states-of-america) on 20 December 2024. I used the news database Nexis UK to identify articles published in the UK national press, as well as transcripts of BBC1 news programmes, to identify mentions of Peter Mandelson between the announcement and 19 January 2025.
 
 This identified a total of 19 BBC reports and 185 newspaper articles (print and online, but excluding letters). Of these 204 reports, only 13 (that’s 6.4%) mentioned Epstein. Below is a breakdown of these news items by publication (combining print and online and weeklies with Sundays). The articles mentioning Epstein are in orange and the rest in blue.
 
@@ -35,6 +35,7 @@ In the table below I give details of these articles, including the number of men
 Notable that a good share of the mentions came from committed reactionaries, who probably believe Mandelson to be a socialist of some sort. By the way, the only mention from everyone’s favourite left-wing publication, the *Guardian*, was a short post on its Politics Live stream reporting Momentum’s statement objecting to the appointment.
 
 So why the conspiracy of silence? Because Mandelson was one of them. Not a journalist, but a key player in the insular and incestuous world of UK media and politics where careers are built through personal connections and destroyed if anyone steps out of line. Together these people form an elite network of political journalists, politicians and political strategists who collectively decide what is and isn’t a political story. Everyone knows this, but for obvious reasons no one with any influence in that world ever says it.
+
 
 | Byline | Headline | Publication | Date | Word Count | Mentions of Epstein |
 |------------|------------|------------|------------|------------|-----------:|
