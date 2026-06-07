@@ -1,6 +1,6 @@
 ---
 title: "Capitalist Power in Post-War Croydon"
-date: "2026-06-12"
+date: "2026-06-07"
 categories: [elites, capital, politics, sociology, Croydon]
 image: "Croydon_Skyline.jpg"
 ---
@@ -64,4 +64,3 @@ Hunter, F. (1953). *Community Power Structure: A Study of Decision Makers*. Chap
 Noble, W. (2024) *Croydonopolis: A Journey to the Greatest City That Never Was*. London: Safe Haven Books. 
 
 Saunders, P. (1979) *Urban Politics: A Sociological Interpretation*. London: Hutchinson.
-
