@@ -10,7 +10,79 @@
 <atom:link href="https://tamills1981.github.io/society-from-the-top-down/index.xml" rel="self" type="application/rss+xml"/>
 <description>I&#39;m Tom Mills, a sociologist in the UK. This is my personal website.</description>
 <generator>quarto-1.8.26</generator>
-<lastBuildDate>Thu, 03 Sep 2026 23:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 15 Sep 2026 23:00:00 GMT</lastBuildDate>
+<item>
+  <title>Reform’s donations are not normal</title>
+  <link>https://tamills1981.github.io/society-from-the-top-down/posts/reform-donations/</link>
+  <description><![CDATA[ 
+
+
+
+
+
+<p>Reform UK have been in the news again. This time because of ‘mega donations’ - as everyone in the news media seems to be calling them - from two cryptocurrency billionaires: Ben Delo and Chirstopher Harborne. I’ve done some research on political donations before, as I mentioned in a previous <a href="https://tamills1981.github.io/society-from-the-top-down/posts/labour-together-donor-network/">post</a>, and I’d like to write a lot more about this. Sadly though I have far too much going on with work to find the time right now. I’ll return to it when I can.</p>
+<p>In the meantime, I thought it might be worth doing a really quick post to illustrate just how <em>not normal</em> these donations are in British politics. Because there are quite strict rules around election spending in the UK, political donations are tiny compared to the United States, even taking into account the relative size of the two countries’ economies. Not that this has prevented the superrich from effectively buying political access in the UK.</p>
+<p>These new donations, though, are on a completely different scale.</p>
+<section id="summary-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="summary-statistics">Summary Statistics</h2>
+<p>The table below displays summary statistics for the value of political donations in the Electoral Commission’s register. As you can see, its already skewed by a small number of very high value donations. The £10m pound donation, which is currently the highest political donation on record, was provided by John Sainsbury to the Conservative Party in September 2023. The two new Reform are each reported to have been £36m.</p>
+<table class="caption-top table">
+<caption>Summary Statistics for Political Donations in the Electoral Commission Register, September 2026</caption>
+<tbody>
+<tr class="odd">
+<td><strong>Count</strong></td>
+<td>94,066.00</td>
+</tr>
+<tr class="even">
+<td><strong>Mean</strong></td>
+<td>18,151.77</td>
+</tr>
+<tr class="odd">
+<td><strong>Median</strong></td>
+<td>3,200.00</td>
+</tr>
+<tr class="even">
+<td><strong>Standard deviation</strong></td>
+<td>104,585.32</td>
+</tr>
+<tr class="odd">
+<td><strong>Minimum</strong></td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td><strong>25th percentile</strong></td>
+<td>1,625.98</td>
+</tr>
+<tr class="odd">
+<td><strong>75th percentile</strong></td>
+<td>10,000.00</td>
+</tr>
+<tr class="even">
+<td><strong>Maximum</strong></td>
+<td>10,000,000.00</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="interactive-plot-of-political-donations" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-plot-of-political-donations">Interactive Plot of Political Donations</h2>
+<p>To produce the chart below, I added the two reported donations (which don’t yet feature in the register) to the dataset of donations published by the Electoral Commission (which date back to January 2001) and plotted the reported value of every donation on the y-axis.</p>
+<p>The new donations are highlighted in red. If you hover your cursor over the donation in the plot, it will tell you the donor, donee and the donation value.</p>
+<iframe src="reform_donations.html" width="100%" height="800" style="border:none;">
+</iframe>
+<p>Perhaps not the best visualisation. But it illustrates the point. As I said, not normal.</p>
+
+
+</section>
+
+ ]]></description>
+  <category>elites</category>
+  <category>politics</category>
+  <category>computational social science</category>
+  <guid>https://tamills1981.github.io/society-from-the-top-down/posts/reform-donations/</guid>
+  <pubDate>Tue, 15 Sep 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://tamills1981.github.io/society-from-the-top-down/posts/reform-donations/reform_donations.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>Strange Freedom</title>
   <link>https://tamills1981.github.io/society-from-the-top-down/posts/neoliberalism-public-choice/</link>
