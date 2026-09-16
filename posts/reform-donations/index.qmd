@@ -1,5 +1,5 @@
 ---
-title: "Reform's donations are not normal"
+title: "Reform's Donations are not Normal"
 date: "2026-09-16"
 categories: [elites, politics, computational social science]
 image: "reform_donations.jpg"

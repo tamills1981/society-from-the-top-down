@@ -9,21 +9,21 @@
   {
     "objectID": "posts/reform-donations/index.html",
     "href": "posts/reform-donations/index.html",
-    "title": "Reform’s donations are not normal",
+    "title": "Reform’s Donations are not Normal",
     "section": "",
     "text": "Reform UK have been in the news again. This time because of ‘mega donations’ - as everyone in the news media seems to be calling them - from two cryptocurrency billionaires: Ben Delo and Chirstopher Harborne. I’ve done some research on political donations before, as I mentioned in a previous post, and I’d like to write a lot more about this. Sadly though I have far too much going on with work to find the time right now. I’ll return to it when I can.\nIn the meantime, I thought it might be worth doing a really quick post to illustrate just how not normal these donations are in British politics. Because there are quite strict rules around election spending in the UK, political donations are tiny compared to the United States, even taking into account the relative size of the two countries’ economies. Not that this has prevented the superrich from effectively buying political access in the UK.\nThese new donations, though, are on a completely different scale."
   },
   {
     "objectID": "posts/reform-donations/index.html#summary-statistics",
     "href": "posts/reform-donations/index.html#summary-statistics",
-    "title": "Reform’s donations are not normal",
+    "title": "Reform’s Donations are not Normal",
     "section": "Summary Statistics",
     "text": "Summary Statistics\nThe table below displays summary statistics for the value of political donations in the Electoral Commission’s register. As you can see, its already skewed by a small number of very high value donations. The £10m pound donation, which is currently the highest political donation on record, was provided by John Sainsbury to the Conservative Party in September 2023. The two new Reform are each reported to have been £36m.\n\nSummary Statistics for Political Donations in the Electoral Commission Register, September 2026\n\n\nCount\n94,066.00\n\n\nMean\n18,151.77\n\n\nMedian\n3,200.00\n\n\nStandard deviation\n104,585.32\n\n\nMinimum\n0\n\n\n25th percentile\n1,625.98\n\n\n75th percentile\n10,000.00\n\n\nMaximum\n10,000,000.00"
   },
   {
     "objectID": "posts/reform-donations/index.html#interactive-plot-of-political-donations",
     "href": "posts/reform-donations/index.html#interactive-plot-of-political-donations",
-    "title": "Reform’s donations are not normal",
+    "title": "Reform’s Donations are not Normal",
     "section": "Interactive Plot of Political Donations",
     "text": "Interactive Plot of Political Donations\nTo produce the chart below, I added the two reported donations (which don’t yet feature in the register) to the dataset of donations published by the Electoral Commission (which date back to January 2001) and plotted the reported value of every donation on the y-axis.\nThe new donations are highlighted in red. If you hover your cursor over the donation in the plot, it will tell you the donor, donee and the donation value.\n\n\nPerhaps not the best visualisation. But it illustrates the point. As I said, not normal."
   },
@@ -53,7 +53,7 @@
     "href": "index.html",
     "title": "Society From the Top Down",
     "section": "",
-    "text": "Reform’s donations are not normal\n\n\n\nelites\n\npolitics\n\ncomputational social science\n\n\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nStrange Freedom\n\n\n\nneoliberalism\n\nconservatism\n\npolitics\n\n\n\n\n\n\n\n\n\n\nSep 4, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCapitalist Power in Post-War Croydon\n\n\n\nelites\n\ncapital\n\npolitics\n\nsociology\n\nCroydon\n\n\n\n\n\n\n\n\n\n\nJun 7, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nPaul Sweezy’s Corporate Interest Groups Revisited\n\n\n\nintellectual history\n\nelites\n\nnetwork analysis\n\ncapital\n\ncomputational social science\n\n\n\n\n\n\n\n\n\n\nApr 21, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nMedia Use Amongst the Public and Political Elite\n\n\n\nelites\n\nmedia\n\npolitics\n\n\n\n\n\n\n\n\n\n\nMar 31, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nConspiracy of Silence\n\n\n\nelites\n\npolitics\n\nmedia\n\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork Analysis and the Paranoid Style\n\n\n\npolitics\n\nnetwork analysis\n\n\n\n\n\n\n\n\n\n\nJan 28, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCapital and Conservatism\n\n\n\nelites\n\ncapital\n\nconservatism\n\npolitics\n\nmedia\n\n\n\n\n\n\n\n\n\n\nJan 21, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nLabour Together’s Donor Network\n\n\n\npolitics\n\npython\n\nnetwork analysis\n\ncomputational social science\n\n\n\n\n\n\n\n\n\n\nJan 19, 2026\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n\n\n\n\n\n\n\nJan 14, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "Reform’s Donations are not Normal\n\n\n\nelites\n\npolitics\n\ncomputational social science\n\n\n\n\n\n\n\n\n\n\nSep 16, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nStrange Freedom\n\n\n\nneoliberalism\n\nconservatism\n\npolitics\n\n\n\n\n\n\n\n\n\n\nSep 4, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCapitalist Power in Post-War Croydon\n\n\n\nelites\n\ncapital\n\npolitics\n\nsociology\n\nCroydon\n\n\n\n\n\n\n\n\n\n\nJun 7, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nPaul Sweezy’s Corporate Interest Groups Revisited\n\n\n\nintellectual history\n\nelites\n\nnetwork analysis\n\ncapital\n\ncomputational social science\n\n\n\n\n\n\n\n\n\n\nApr 21, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nMedia Use Amongst the Public and Political Elite\n\n\n\nelites\n\nmedia\n\npolitics\n\n\n\n\n\n\n\n\n\n\nMar 31, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nConspiracy of Silence\n\n\n\nelites\n\npolitics\n\nmedia\n\n\n\n\n\n\n\n\n\n\nFeb 11, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nNetwork Analysis and the Paranoid Style\n\n\n\npolitics\n\nnetwork analysis\n\n\n\n\n\n\n\n\n\n\nJan 28, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nCapital and Conservatism\n\n\n\nelites\n\ncapital\n\nconservatism\n\npolitics\n\nmedia\n\n\n\n\n\n\n\n\n\n\nJan 21, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nLabour Together’s Donor Network\n\n\n\npolitics\n\npython\n\nnetwork analysis\n\ncomputational social science\n\n\n\n\n\n\n\n\n\n\nJan 19, 2026\n\n\n\n\n\n\n\n\n\n\n\nWelcome!\n\n\n\n\n\n\n\n\n\nJan 14, 2026\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
